@@ -300,19 +300,7 @@ extension EditorComponent: EditorViewDelegate {
                                                          uri: currentURL.absoluteString)
       let params = DidChangeTextDocumentParams(textDocument: documentInfo,
                                                contentChanges: [contentChange])
-      languageClient?.send(notification: DidChangeTextDocumentNotification(params: params))
-      
-      if text.contains("\n") {
-        let lineFormatRequest = DocumentRangeFormattingRequest(params: DocumentRangeFormattingParams(textDocument: TextDocumentIdentifier(uri: documentInfo.uri),
-                                          range: contentChange.range!,
-                                          options: FormattingOptions(tabSize: 2, insertSpaces: true)))
-        languageClient?.send(message: lineFormatRequest, responseType: DocumentRangeFormattingResult.self)
-          .done{ (result) in
-            print(result)
-          }.catch({ (error) in
-            print(error)
-          })        
-      }
+      languageClient?.send(notification: DidChangeTextDocumentNotification(params: params))      
     }
   }
   
