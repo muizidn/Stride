@@ -123,7 +123,12 @@ public class EditorComponent: TextAreaComponent {
     if let textAreaView = textAreaView {
       textAreaView.position = nil
       textAreaView.state.text = StringDocument(string: string)
+      
+#if os(Linux)
+      textAreaView.font = Font(size: 11, family: "Ubuntu Mono")
+#else
       textAreaView.font = Font(size: 11, family: "Menlo")
+#endif
 
       view.window.rootView.invalidateLayout()
       scrollView.contentsDidChange()
