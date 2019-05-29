@@ -125,7 +125,7 @@ public class EditorComponent: TextAreaComponent {
       textAreaView.state.text = StringDocument(string: string)
       
 #if os(Linux)
-      textAreaView.font = Font(size: 11, family: "Ubuntu Mono")
+      textAreaView.font = Font(size: 12, family: "Ubuntu Mono")
 #else
       textAreaView.font = Font(size: 11, family: "Menlo")
 #endif
