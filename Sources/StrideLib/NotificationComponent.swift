@@ -18,8 +18,8 @@ public class NotificationComponent: Component {
     self.message = message
   }
   
-  override open func loadView(frame: CGRect) {
-    view = ScrollView(frame: frame)
+  override open func loadView() {
+    view = ScrollView()
   }
   
   public override func viewDidLoad() {

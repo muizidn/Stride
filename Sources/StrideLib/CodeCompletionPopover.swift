@@ -269,7 +269,7 @@ public class CodeCompletionPopover: ListComponent {
 
   public override func cellForItem(at indexPath: IndexPath,
                                    withState state: ListItemState) -> ListViewCell {
-    let cell = CodeCompletionItemCell(frame: CGRect(x: 0, y: 0, width: 500, height: 20))
+    let cell = CodeCompletionItemCell()
 
     let completionItem = filteredCompletionItems?[indexPath.item]
     
