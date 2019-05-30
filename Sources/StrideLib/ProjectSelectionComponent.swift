@@ -15,6 +15,8 @@ public class ProjectSelectionComponent: CompositeComponent {
   
   let newProjectButton = Button(ofType: .default)
   let importProjectButton = Button(ofType: .default)
+  
+  let bannerImageView = ImageView()
 
   public override func viewDidLoad() {
     super.viewDidLoad()
@@ -77,13 +79,22 @@ public class ProjectSelectionComponent: CompositeComponent {
     newProjectButton.set(foregroundColor: .textColor, forState: .unfocused)
     importProjectButton.set(foregroundColor: .textColor, forState: .unfocused)
 
+    let bannerImageName: String
+    
     switch style {
     case .light:
       importProjectButton.set(foregroundColor: .darkerGray, forState: .pressed)
       newProjectButton.set(foregroundColor: .darkerGray, forState: .pressed)
+      bannerImageName = "stride_banner"
     case .dark:
       importProjectButton.set(foregroundColor: .lighterGray, forState: .pressed)
       newProjectButton.set(foregroundColor: .lighterGray, forState: .pressed)
+      bannerImageName = "stride_banner_dark"
+    }
+    
+    if let bannerPath = Bundle.main.path(forAsset: bannerImageName, ofType: "png") {
+      let bannerImage = Image(filePath: bannerPath)
+      bannerImageView.image = bannerImage
     }
   }
   
@@ -161,14 +172,9 @@ public class ProjectSelectionComponent: CompositeComponent {
     newProjectsView.width = 40%
     parent.add(subview: newProjectsView)
     
-    if let bannerPath = Bundle.main.path(forAsset: "stride_banner", ofType: "png") {
-      let bannerImage = Image(filePath: bannerPath)
-      let imageView = ImageView()
-      imageView.image = bannerImage
-      imageView.height = 80~
-      imageView.width = 95%      
-      newProjectsView.add(subview: imageView)
-    }
+    bannerImageView.height = 80~
+    bannerImageView.width = 95%
+    newProjectsView.add(subview: bannerImageView)
         
     newProjectButton.title = "Create New Project"
     newProjectButton.set(margin: 20~, for: .left)
