@@ -104,7 +104,7 @@ public class EditorComponent: TextAreaComponent {
         guard let `self` = self, self.needsFullSync, let currentURL = self.currentURL else {
           return
         }
-                
+        
         let contentChange = TextDocumentContentChangeEvent(range: nil,
                                                        rangeLength: nil,
                                                        text: self.textAreaView?.state.text.buffer)
@@ -187,6 +187,65 @@ public class EditorComponent: TextAreaComponent {
     }
   }
   
+  ///
+  /// Indents a line according to the same coding style used by the formatter.  This is intended for the case
+  /// where a new line is inserted and the resulting newline needs to be indented correctly, rather than as a
+  /// general purpose single-line indenter.
+  ///
+  func indent(line: Int) {
+    guard let lineRange = editorView.state.text.rangeOfLine(line),
+          let currentURL = currentURL,
+          let languageConfiguration = languageConfiguration else { return }
+    
+    let lineContent = editorView.state.text.buffer[lineRange]
+    let isEmptyLine = lineContent.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    
+    if isEmptyLine {
+      // The formatter won't indent an empty line, so we're forced to use a horrible workaround
+      // of inserting a comment, formatting it, then removing the comment!
+      editorView.insert(text: "//", at: lineRange.lowerBound)
+    }
+    
+    if let newLineContents = SwiftFormatter.printFormat(file: currentURL,
+                                                     line: line,
+                                                     languageConfiguration: languageConfiguration) {
+      
+      var result = newLineContents
+      
+      if isEmptyLine {
+        // Remove our temporary comment.
+        result = result.replacingOccurrences(of: "//", with: "")
+      }
+
+      result += "\n"
+      
+      // Select the old line text so that when we insert the new line text, it'll be replaced.
+      editorView.select(line: line)
+      
+      if let position = editorView.positionIndex {
+        // Add our indented line.
+        editorView.insert(text: String(result), at: position)
+        
+        // The rest of this method figures out where to place the caret.  In short,
+        // we just go the the first non-whitespace or newline position.
+        
+        let lineRange = editorView.state.text.rangeOfLine(line)!
+        let text = editorView.state.text.buffer
+        
+        let lower = lineRange.lowerBound.samePosition(in: text)!
+        let upper = lineRange.upperBound.samePosition(in: text)!
+        
+        let isWhitespaceOrNewline = { (char: Character) -> Bool in
+          return !char.isWhitespace || char.isNewline
+        }
+        
+        if let newPositionIndex = text[lower..<upper].firstIndex(where: isWhitespaceOrNewline) {
+          editorView.position = text.distance(from: text.startIndex, to: newPositionIndex)
+        }
+      }
+    }
+  }
+  
   func revert() {
     guard let currentURL = currentURL else { return }
     
@@ -260,6 +319,11 @@ extension EditorComponent: EditorViewDelegate {
 
     handleInsert(text: text, at: position)
     updateCodeCompletion()
+    
+    // If a newline was inserted, indent the newly created line.
+    if text == "\n", let currentLine = editorView.currentLine {
+      indent(line: currentLine)
+    }
   }
   
   private func handleInsert(text: String, at position: String.Index) {
