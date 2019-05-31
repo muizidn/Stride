@@ -200,6 +200,10 @@ public class EditorComponent: TextAreaComponent {
     let lineContent = editorView.state.text.buffer[lineRange]
     let isEmptyLine = lineContent.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     
+    // Since we make brief intermediary changes to the editor view as part of this, disable redraws
+    // until we've got the final result.
+    editorView.disableRedraw = true
+    
     if isEmptyLine {
       // The formatter won't indent an empty line, so we're forced to use a horrible workaround
       // of inserting a comment, formatting it, then removing the comment!
@@ -225,7 +229,8 @@ public class EditorComponent: TextAreaComponent {
       if let position = editorView.positionIndex {
         // Add our indented line.
         editorView.insert(text: String(result), at: position)
-        
+        editorView.disableRedraw = false
+
         // The rest of this method figures out where to place the caret.  In short,
         // we just go the the first non-whitespace or newline position.
         
