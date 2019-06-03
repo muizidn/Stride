@@ -31,6 +31,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		061D4F6A22A5DB1A00D11EB5 /* ContextMenuComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061D4F6922A5DB1A00D11EB5 /* ContextMenuComponent.swift */; };
+		061D4F6C22A5DB9600D11EB5 /* ContextMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061D4F6B22A5DB9600D11EB5 /* ContextMenuItemCell.swift */; };
+		061D4F6E22A5DCF300D11EB5 /* GtkMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061D4F6D22A5DCF300D11EB5 /* GtkMenuController.swift */; };
 		0669316722A0326D00DC8930 /* Assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = OBJ_445 /* Assets */; };
 		OBJ_458 /* Highlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_268 /* Highlighter.swift */; };
 		OBJ_459 /* SwiftSyntaxHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_269 /* SwiftSyntaxHighlighter.swift */; };
@@ -340,7 +343,7 @@
 		OBJ_881 /* CairoGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_353 /* CairoGraphics.swift */; };
 		OBJ_882 /* DisplayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_354 /* DisplayUtils.swift */; };
 		OBJ_883 /* Font+Pango.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_355 /* Font+Pango.swift */; };
-		OBJ_884 /* GtkStyleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_356 /* GtkStyleMenu.swift */; };
+		OBJ_884 /* ContextMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_356 /* ContextMenuController.swift */; };
 		OBJ_885 /* LinuxFileBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_357 /* LinuxFileBrowser.swift */; };
 		OBJ_886 /* LinuxIconService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_358 /* LinuxIconService.swift */; };
 		OBJ_887 /* LinuxKeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_359 /* LinuxKeyEvent.swift */; };
@@ -655,6 +658,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		061D4F6922A5DB1A00D11EB5 /* ContextMenuComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuComponent.swift; sourceTree = "<group>"; };
+		061D4F6B22A5DB9600D11EB5 /* ContextMenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuItemCell.swift; sourceTree = "<group>"; };
+		061D4F6D22A5DCF300D11EB5 /* GtkMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GtkMenuController.swift; sourceTree = "<group>"; };
 		"Highlighter::Highlighter::Product" /* Highlighter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Highlighter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Highlighter::HighlighterRunner::Product" /* HighlighterRunner */ = {isa = PBXFileReference; lastKnownFileType = text; path = HighlighterRunner; sourceTree = BUILT_PRODUCTS_DIR; };
 		"LanguageClient::LanguageClient::Product" /* LanguageClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LanguageClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -917,7 +923,7 @@
 		OBJ_353 /* CairoGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CairoGraphics.swift; sourceTree = "<group>"; };
 		OBJ_354 /* DisplayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayUtils.swift; sourceTree = "<group>"; };
 		OBJ_355 /* Font+Pango.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Pango.swift"; sourceTree = "<group>"; };
-		OBJ_356 /* GtkStyleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GtkStyleMenu.swift; sourceTree = "<group>"; };
+		OBJ_356 /* ContextMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuController.swift; sourceTree = "<group>"; };
 		OBJ_357 /* LinuxFileBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxFileBrowser.swift; sourceTree = "<group>"; };
 		OBJ_358 /* LinuxIconService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxIconService.swift; sourceTree = "<group>"; };
 		OBJ_359 /* LinuxKeyEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxKeyEvent.swift; sourceTree = "<group>"; };
@@ -1172,6 +1178,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		061D4F6822A5DAEE00D11EB5 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_366 /* Menu.swift */,
+				061D4F6922A5DB1A00D11EB5 /* ContextMenuComponent.swift */,
+				061D4F6B22A5DB9600D11EB5 /* ContextMenuItemCell.swift */,
+				OBJ_356 /* ContextMenuController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Stride */ = {
 			isa = PBXGroup;
 			children = (
@@ -1438,6 +1455,7 @@
 		OBJ_316 /* Suit */ = {
 			isa = PBXGroup;
 			children = (
+				061D4F6822A5DAEE00D11EB5 /* Menu */,
 				OBJ_317 /* Animation */,
 				OBJ_326 /* Appearance.swift */,
 				OBJ_327 /* Application.swift */,
@@ -1467,7 +1485,6 @@
 				OBJ_363 /* ListComponent.swift */,
 				OBJ_364 /* ListView.swift */,
 				OBJ_365 /* ListViewCell.swift */,
-				OBJ_366 /* Menu.swift */,
 				OBJ_367 /* NSBezierPath.swift */,
 				OBJ_368 /* PointerEvent.swift */,
 				OBJ_369 /* PointerEventDelegate.swift */,
@@ -1523,13 +1540,13 @@
 				OBJ_353 /* CairoGraphics.swift */,
 				OBJ_354 /* DisplayUtils.swift */,
 				OBJ_355 /* Font+Pango.swift */,
-				OBJ_356 /* GtkStyleMenu.swift */,
 				OBJ_357 /* LinuxFileBrowser.swift */,
 				OBJ_358 /* LinuxIconService.swift */,
 				OBJ_359 /* LinuxKeyEvent.swift */,
 				OBJ_360 /* X11Application.swift */,
 				OBJ_361 /* X11Clipboard.swift */,
 				OBJ_362 /* X11Window.swift */,
+				061D4F6D22A5DCF300D11EB5 /* GtkMenuController.swift */,
 			);
 			path = Linux;
 			sourceTree = "<group>";
@@ -1662,7 +1679,7 @@
 			path = RxSuit;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -1685,7 +1702,6 @@
 				OBJ_451 /* build.sh */,
 				OBJ_452 /* test.sh */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_50 /* Source List */ = {
@@ -2325,7 +2341,7 @@
 				English,
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_427 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2744,13 +2760,15 @@
 				OBJ_877 /* ImageView.swift in Sources */,
 				OBJ_878 /* KeyEvent.swift in Sources */,
 				OBJ_879 /* KeyEventDelegate.swift in Sources */,
+				061D4F6E22A5DCF300D11EB5 /* GtkMenuController.swift in Sources */,
 				OBJ_880 /* Label.swift in Sources */,
 				OBJ_881 /* CairoGraphics.swift in Sources */,
 				OBJ_882 /* DisplayUtils.swift in Sources */,
 				OBJ_883 /* Font+Pango.swift in Sources */,
-				OBJ_884 /* GtkStyleMenu.swift in Sources */,
+				OBJ_884 /* ContextMenuController.swift in Sources */,
 				OBJ_885 /* LinuxFileBrowser.swift in Sources */,
 				OBJ_886 /* LinuxIconService.swift in Sources */,
+				061D4F6A22A5DB1A00D11EB5 /* ContextMenuComponent.swift in Sources */,
 				OBJ_887 /* LinuxKeyEvent.swift in Sources */,
 				OBJ_888 /* X11Application.swift in Sources */,
 				OBJ_889 /* X11Clipboard.swift in Sources */,
@@ -2760,6 +2778,7 @@
 				OBJ_893 /* ListViewCell.swift in Sources */,
 				OBJ_894 /* Menu.swift in Sources */,
 				OBJ_895 /* NSBezierPath.swift in Sources */,
+				061D4F6C22A5DB9600D11EB5 /* ContextMenuItemCell.swift in Sources */,
 				OBJ_896 /* PointerEvent.swift in Sources */,
 				OBJ_897 /* PointerEventDelegate.swift in Sources */,
 				OBJ_898 /* RedrawManager.swift in Sources */,

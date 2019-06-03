@@ -37,6 +37,23 @@ class SourceListItemView: Button {
     background.color = .clear
     // Add some space between the icon and the label.
     imageView.set(margin: 3~, for: .right)
+    
+    contextMenu = Menu()
+    let openMenuItem = MenuItem(title: "Open")
+    openMenuItem.action = { [weak self] in
+      self?.press()
+    }
+    
+    let copyPathMenuItem = MenuItem(title: "Copy Path")
+    copyPathMenuItem.action = { [weak self] in
+      if let filePath = self?.filePath {
+        Clipboard.general.add(string: filePath)
+      }
+    }
+
+    contextMenu?.add(item: openMenuItem)
+    contextMenu?.add(item: copyPathMenuItem)
+
     updateAppearance(style: Appearance.current)
   }
   
