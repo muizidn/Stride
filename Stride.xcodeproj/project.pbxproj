@@ -1055,7 +1055,7 @@
             "OBJ_264",
             "OBJ_265"
          );
-         name = "PromiseKit 6.8.4";
+         name = "PromiseKit 6.8.5";
          path = ".build/checkouts/PromiseKit/Sources";
          sourceTree = "SOURCE_ROOT";
       };
@@ -2314,18 +2314,18 @@
       "OBJ_420" = {
          isa = "PBXGroup";
          children = (
-            "RxSwift::RxSwift::Product",
-            "Stride::StrideLib::Product",
-            "Suit::SuitTestUtils::Product",
-            "PromiseKit::PromiseKit::Product",
-            "Suit::Suit::Product",
-            "Highlighter::Highlighter::Product",
-            "Highlighter::HighlighterRunner::Product",
-            "LanguageClient::LanguageClient::Product",
-            "SwiftSyntax::SwiftSyntax::Product",
             "SPMClient::SPMClient::Product",
+            "Suit::Suit::Product",
+            "Suit::SuitTestUtils::Product",
+            "Stride::StrideTests::Product",
+            "RxSwift::RxSwift::Product",
+            "SwiftSyntax::SwiftSyntax::Product",
+            "PromiseKit::PromiseKit::Product",
+            "Highlighter::Highlighter::Product",
+            "LanguageClient::LanguageClient::Product",
+            "Stride::StrideLib::Product",
             "Stride::Stride::Product",
-            "Stride::StrideTests::Product"
+            "Highlighter::HighlighterRunner::Product"
          );
          name = "Products";
          path = "";

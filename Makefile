@@ -1,5 +1,11 @@
 SCRIPTS_DIR=scripts
 
+start:
+	bash $(SCRIPTS_DIR)/install_prerequisite.sh
+	make update exec
+
+exec: build run
+
 run:
 	swift run --skip-build
 

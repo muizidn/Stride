@@ -51,6 +51,17 @@ To run tests, you can either do so from inside the Xcode project, or use the inc
 
     ./test.sh
 
+We've provided Makefile for your convenience.
+
+    # Start building Stride
+    make start
+
+    # Build and run
+    make exec
+
+    # test 
+    make test
+
 When you first run Stride you will need to go into the Preferences and select the Swift compiler path and the path to the [sourcekit-lsp](https://github.com/apple/sourcekit-lsp) executable.  Stride includes pre-built binaries inside its "Language Servers" folder.  You can try these, but it's advised to build your own using your toolchain.
 
 ## Troubleshooting
