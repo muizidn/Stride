@@ -2314,18 +2314,18 @@
       "OBJ_420" = {
          isa = "PBXGroup";
          children = (
-            "SPMClient::SPMClient::Product",
-            "Suit::Suit::Product",
-            "Suit::SuitTestUtils::Product",
-            "Stride::StrideTests::Product",
             "RxSwift::RxSwift::Product",
+            "SPMClient::SPMClient::Product",
+            "Suit::SuitTestUtils::Product",
+            "Stride::Stride::Product",
             "SwiftSyntax::SwiftSyntax::Product",
+            "Highlighter::HighlighterRunner::Product",
+            "Stride::StrideTests::Product",
             "PromiseKit::PromiseKit::Product",
             "Highlighter::Highlighter::Product",
-            "LanguageClient::LanguageClient::Product",
             "Stride::StrideLib::Product",
-            "Stride::Stride::Product",
-            "Highlighter::HighlighterRunner::Product"
+            "LanguageClient::LanguageClient::Product",
+            "Suit::Suit::Product"
          );
          name = "Products";
          path = "";
