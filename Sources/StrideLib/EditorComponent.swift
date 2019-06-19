@@ -326,7 +326,7 @@ extension EditorComponent: EditorViewDelegate {
     updateCodeCompletion()
     
     // If a newline was inserted, indent the newly created line.
-    if text == "\n", let currentLine = editorView.currentLine, currentLine != editorView.state.text.numberOfLines {
+    if text == "\n", let currentLine = editorView.currentLine {
       indent(line: currentLine)
     }
   }
