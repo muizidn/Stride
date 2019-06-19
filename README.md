@@ -1,4 +1,4 @@
-![alt text](./PromoImages/stride_banner.png "Stride: a cross platform Swift IDE")
+![alt text](https://raw.githubusercontent.com/pmacro/Stride/master/PromoImages/stride_banner.png "Stride: a cross platform Swift IDE")
 
 Stride is a cross-platform IDE for Swift development.  Stride is in the early stages of its development, but is useful and usable in its present state where alternatives are limited.  It's "self-hosting": you can edit, build and run Stride within itself.
 
@@ -6,7 +6,7 @@ As its project model Stride uses Swift packages, thereby providing first class s
 
 Stride uses a custom GUI toolkit called [Suit](https://github.com/pmacro/Suit), written from scratch in Swift, in order to provide a single consistent codebase and experience across platforms.  While only macOS and Linux are supported today, backends for other platforms are planned once things stabilize a little bit more.
 
-![alt text](./PromoImages/stride_preview.gif "Preview of Stride on Ubuntu")
+![alt text](https://raw.githubusercontent.com/pmacro/Stride/master/PromoImages/stride_preview.gif "Preview of Stride on Ubuntu")
 
 ## Building
 
@@ -64,6 +64,13 @@ We've provided Makefile for your convenience.
 
 When you first run Stride you will need to go into the Preferences and select the Swift compiler path and the path to the [sourcekit-lsp](https://github.com/apple/sourcekit-lsp) executable.  Stride includes pre-built binaries inside its "Language Servers" folder.  You can try these, but it's advised to build your own using your toolchain.
 
+## Documentation
+
+Stride documentation is generated using [Jazzy](https://github.com/realm/jazzy) and will be available per-module. You can generate locally using make command.
+
+	
+	make documentation
+	
 ## Troubleshooting
 
 The project is so new at this point that I don't know what issues users are likely to face.  The best thing to do is let me know and I'll respond ASAP.  I suspect that the most likely issues will be related to getting code completion to work and having Stride load arbitrary projects.  Please bear with me while any initial teething problems are worked out!
